@@ -1,5 +1,0 @@
-IMAGE_SIZE = 224
-DATA_FOLDER = "data"
-CLASS_LIST = ["bcc", "melanoma"]
-BATCH_SIZE = 32
-EPOCHS = 10
