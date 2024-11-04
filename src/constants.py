@@ -1,6 +1,6 @@
-IMAGE_SIZE = 224
-DATA_FOLDER = r"C:\Users\Lasene\Downloads\SkinCancerDataset\skin-lesions"
-CLASS_LIST = ["bcc", "mel"]
-BATCH_SIZE = 32
-EPOCHS = 10
+IMAGE_SIZE = 124
+DATA_FOLDER = "../../skin_cancer_dataset/"
+CLASS_LIST = ["bcc", "melanoma"]
+BATCH_SIZE = 16
+EPOCHS = 50
 WEIGHTS_FILE = "checkpointer/model_v.0.0.1.weights.h5"
