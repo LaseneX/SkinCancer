@@ -155,6 +155,7 @@ def contruct_model():
 
 
 def summarize_diagnostics(training_history):
+    plt.tight_layout(pad=2.0)
     plt.subplot(211)
     plt.title("Cross Entropy Loss")
     plt.plot(training_history.history["loss"], color="blue", label="train")
@@ -162,8 +163,8 @@ def summarize_diagnostics(training_history):
 
     plt.subplot(212)
     plt.title("Classification Accuracy")
-    plt.plot(training_history.history["acc"], color="blue", label="train")
-    plt.plot(training_history.history["val_acc"], color="orange", label="test")
+    plt.plot(training_history.history["accuracy"], color="blue", label="train")
+    plt.plot(training_history.history["val_accuracy"], color="orange", label="test")
     filename = f"{time()}_plot.png"
     plt.savefig(filename)
     plt.close()
@@ -190,9 +191,14 @@ def run_test():
         epochs=EPOCHS,
         validation_data=(x_test, y_test),
     )
+    print(history)
     _, acc = model.evaluate(x_test, y_test)
     print("%.3f" % (acc * 100))
     summarize_diagnostics(history)
+
+    # Save the trained model
+    model.save(WEIGHTS_FILE)
+    print(f"Model saved to {WEIGHTS_FILE}")
 
 
 if __name__ == "__main__":
