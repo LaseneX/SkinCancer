@@ -1,8 +1,8 @@
-from constants import CLASS_LIST, IMAGE_SIZE, WEIGHTS_FILE
-from train import contruct_model
+from constants import CLASS_LIST, IMAGE_SIZE, WEIGHTS_FILE, TESTING_IMAGE
 from keras.preprocessing.image import load_img
 from keras.preprocessing.image import img_to_array
 from keras.models import load_model
+import numpy as np
 
 
 def load_image(image_path):
@@ -36,8 +36,13 @@ def predict_image(image_path):
     model = load_model(WEIGHTS_FILE)
 
     preprocessed_image = load_image(image_path)
-    prediction = model.predict_classes(preprocessed_image)
-    predicted_class = CLASS_LIST[prediction[0]]
+    prediction = model.predict(preprocessed_image)
+    predicted_class = CLASS_LIST[np.argmax(prediction)]
+    predicted_class_prob = np.max(prediction)
 
     print(f"Predicted class: {predicted_class}")
-    return predicted_class
+    print(f"Predicted probality: {predicted_class_prob}")
+    return predicted_class, predicted_class_prob
+
+if __name__ == "__main__":
+    predict_image(TESTING_IMAGE)

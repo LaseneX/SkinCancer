@@ -12,8 +12,9 @@ DATA_FOLDER = r"C:\Users\Lasene\Downloads\SkinCancerDataset\skin-lesions"
 """
 CLASS_LIST = ["bcc", "mel"]
 BATCH_SIZE = 16
-EPOCHS = 150
+EPOCHS = 100
 SAVE_FOLDER = os.path.join(CURRENT_FOLDER, "checkpointer")
+TESTING_IMAGE = os.path.join(CURRENT_FOLDER, "testing/image.png")
 WEIGHTS_FILE = os.path.join(SAVE_FOLDER, "checkpointer/model_v.0.0.1.weights.h5")
 
 CLASS_ITEMS = {items: i for i, items in enumerate(CLASS_LIST)}
