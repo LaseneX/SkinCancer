@@ -4,7 +4,7 @@ import tempfile
 from fastapi import FastAPI, File, UploadFile
 from fastapi.responses import JSONResponse
 
-from src.inference import predict_image
+from inference import predict_image
 
 app = FastAPI()
 
@@ -28,6 +28,7 @@ async def predict(file: UploadFile = File(...)):
         Raises:
             HTTPException: If there's an error processing the file or making the prediction.
     """
+#    print("Server Started at PORT:8000")
     try:
         # Create a temporary directory
         with tempfile.TemporaryDirectory() as temp_dir:

@@ -38,10 +38,10 @@ def predict_image(image_path):
     preprocessed_image = load_image(image_path)
     prediction = model.predict(preprocessed_image)
     predicted_class = CLASS_LIST[np.argmax(prediction)]
-    predicted_class_prob = np.max(prediction)
+    predicted_class_prob = round(np.max(prediction)*100, 4)
 
     print(f"Predicted class: {predicted_class}")
-    print(f"Predicted probality: {predicted_class_prob}")
+    print(f"Predicted probality: {predicted_class_prob}%")
     return predicted_class, predicted_class_prob
 
 if __name__ == "__main__":
