@@ -39,9 +39,9 @@ async def predict(file: UploadFile = File(...)):
                 temp_file.write(contents)
 
             # Make prediction using the temporary file path
-            prediction = predict_image(temp_file_path)
+            predicted_class, prob = predict_image(temp_file_path)
 
         # Return prediction as JSON
-        return JSONResponse(content={"prediction": prediction})
+        return JSONResponse(content={"prediction": predicted_class, "probability": prob})
     except Exception as e:
         return JSONResponse(content={"error": str(e)}, status_code=400)
