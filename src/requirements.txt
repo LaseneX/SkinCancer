@@ -1,0 +1,7 @@
+keras==2.15.0
+tensorflow==2.15.0
+fastapi==0.115.0
+fastapi-cli==0.0.5
+numpy==1.26.4
+matplotlib==3.6.3
+scikit-learn==1.4.2
