@@ -6,7 +6,7 @@ from typing import List, Tuple
 
 import matplotlib.pyplot as plt
 import numpy as np
-from keras.layers import Conv2D, Dense, Flatten, MaxPooling2D
+from keras.layers import Conv2D, Dense, Flatten, MaxPooling2D, Dropout, BatchNormalization
 from keras.models import Sequential
 from keras.optimizers import SGD
 from keras.preprocessing.image import ImageDataGenerator
@@ -91,6 +91,8 @@ def contruct_model():
         )
     )
 
+    model.add(BatchNormalization())
+
     model.add(
         Conv2D(
             IMAGE_SIZE,
@@ -101,7 +103,11 @@ def contruct_model():
         )
     )
 
+    model.add(BatchNormalization())
+
     model.add(MaxPooling2D((2, 2)))
+    model.add(Dropout(0.2))
+
     model.add(
         Conv2D(
             64,
@@ -111,6 +117,7 @@ def contruct_model():
             padding="same",
         )
     )
+    model.add(BatchNormalization())
     model.add(
         Conv2D(
             64,
@@ -141,9 +148,13 @@ def contruct_model():
             padding="same",
         )
     )
+    model.add(BatchNormalization())
     model.add(MaxPooling2D((2, 2)))
+    model.add(Dropout(0.3))
     model.add(Flatten())
     model.add(Dense(128, activation="relu", kernel_initializer="he_uniform"))
+    model.add(BatchNormalization())
+    model.add(Dropout(0.5))
     model.add(Dense(len(CLASS_LIST), activation="softmax"))
 
     optimizer = SGD(learning_rate=0.0001, momentum=0.9)
