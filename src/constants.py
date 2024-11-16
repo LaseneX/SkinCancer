@@ -18,7 +18,7 @@ TESTING_IMAGE = os.path.join(CURRENT_FOLDER, "testing/mel1.jpg")
 WEIGHTS_FILE = os.path.join(SAVE_FOLDER, "checkpointer/model_v0.2.weights.h5")
 VERSION_URLS = {
     "v0.1": "https://drive.google.com/uc?id=1v5shovs-FnAgmjj4OQ7FJY5qxqFHPPyy&authuser=1",
-    "v0.2": "your_file_id_for_v0.2",
+    "v0.2": "https://drive.google.com/uc?id=1jUgj1FSEAqHcRmGamKAD4_4MnhNjiOp1&authuser=1",
     "v0.3": "your_file_id_for_v0.3",
     # Add more versions as needed
 }
