@@ -14,8 +14,8 @@ CLASS_LIST = ["bcc", "melanoma"]
 BATCH_SIZE = 16
 EPOCHS = 100
 SAVE_FOLDER = os.path.join(CURRENT_FOLDER, "checkpointer")
-TESTING_IMAGE = os.path.join(CURRENT_FOLDER, "testing/mel2.jpg")
-WEIGHTS_FILE = os.path.join(SAVE_FOLDER, "checkpointer/model_v.0.0.1.weights.h5")
+TESTING_IMAGE = os.path.join(CURRENT_FOLDER, "testing/mel1.jpg")
+WEIGHTS_FILE = os.path.join(SAVE_FOLDER, "checkpointer/model_v0.2.weights.h5")
 VERSION_URLS = {
     "v0.1": "https://drive.google.com/uc?id=1v5shovs-FnAgmjj4OQ7FJY5qxqFHPPyy&authuser=1",
     "v0.2": "your_file_id_for_v0.2",
